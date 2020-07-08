@@ -7,6 +7,9 @@
 *~
 *.swp
 
+tags
+*.out
+slurm/logs/
 exp_*/data/*
 exp_*/tfmodel
 exp_*/tfmodel/*

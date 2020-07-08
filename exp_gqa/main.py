@@ -1,7 +1,12 @@
 import os
 import json
 import torch
-
+import sys
+from pathlib import Path
+parent_path = Path(os.path.dirname(os.path.abspath(__file__))).parent
+sys.path.insert(0, str(parent_path)) # Do not use sys.path.append here
+print('Project home directory: ', str(parent_path))
+print('sys.path: ', sys.path)
 from models_gqa.model import LCGNwrapper
 from models_gqa.config import build_cfg_from_argparse
 from util.gqa_train.data_reader import DataReader
