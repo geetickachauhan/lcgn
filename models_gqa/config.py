@@ -99,7 +99,7 @@ __C.TRAIN.EVAL_MAX_NUM = 0  # 0 means no limit
 __C.TEST = AttrDict()
 __C.TEST.SPLIT_VQA = 'val_balanced'
 __C.TEST.BATCH_SIZE = 128
-__C.TEST.EPOCH = -1  # Needs to be supplied
+__C.TEST.EPOCH = -1  # Needs to be supplied in the yaml files in exp_{gqa/clevr}/cfgs folder
 __C.TEST.DUMP_PRED = False
 __C.TEST.RESULT_DIR = './exp_gqa/results/%s/%04d'
 

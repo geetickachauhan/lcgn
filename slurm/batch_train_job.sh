@@ -8,8 +8,8 @@
 source /scratch/geeticka_c/Anaconda3/etc/profile.d/conda.sh
 conda activate visqa
 #python exp_gqa/main.py --cfg exp_gqa/cfgs/lcgn_scene_graph.yaml train True
-#python exp_gqa/main.py --cfg exp_gqa/cfgs/lcgn_objects.yaml train True
-python exp_gqa/main.py --cfg exp_gqa/cfgs/lcgn_spatial.yaml train True
+python exp_gqa/main.py --cfg exp_gqa/cfgs/lcgn_objects.yaml train True
+#python exp_gqa/main.py --cfg exp_gqa/cfgs/lcgn_spatial.yaml train True
 
 #export PYTHONPATH=/scratch/geeticka_c/lcgn$PYTHONPATH
 #echo $PYTHONPATH

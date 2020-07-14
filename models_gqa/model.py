@@ -96,7 +96,14 @@ class LCGNnet(nn.Module):
         if cfg.TRAIN.LOSS_TYPE == "softmax":
             loss = F.cross_entropy(logits, answers)
         elif cfg.TRAIN.LOSS_TYPE == "sigmoid":
-            answerDist = F.one_hot(answers, self.num_choices).float()
+            # Note: the behavior of tf.one_hot is different from torch.one_hot, need 
+            # below workaround
+            batch_size = answers.size()[-1]
+            tensor_of_negones = -torch.ones(size=(batch_size,), device=answers.device)
+            if torch.all(tensor_of_negones.eq(answers)):
+                answerDist = torch.zeros(size=(batch_size, self.num_choices), device=answers.device).float()
+            else:
+                answerDist = F.one_hot(answers, self.num_choices).float()
             loss = F.binary_cross_entropy_with_logits(
                 logits, answerDist) * self.num_choices
         else:
